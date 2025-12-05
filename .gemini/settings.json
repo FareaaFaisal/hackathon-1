@@ -1,0 +1,18 @@
+{
+  "mcpServers": {
+    "context7": {
+      "type": "stdio",
+      "command": "npx",
+      "args": [
+        "@upstash/context7-mcp"
+      ]
+    }
+  },
+  "github": {
+    "type": "http",
+    "url": "https://api.githubcopilot.com/mcp/",
+    "headers": {
+      "Authorization": "Bearer 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"
+    }
+  }
+}
