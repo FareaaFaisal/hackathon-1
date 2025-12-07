@@ -3,22 +3,124 @@ sidebar_position: 2
 title: "ROS 2 Architecture: Nodes, Topics, Services, Actions"
 ---
 
-## ROS 2 Architecture: Nodes, Topics, Services, Actions
+# Chapter 2: ROS 2 Architecture: Nodes, Topics, Services, Actions
 
-This chapter explains DDS, pub/sub, QoS, and uses real examples for humanoid messaging.
+## 2.1 Overview
 
-### Requirements:
-- Explain DDS, pub/sub, QoS.
-- Use real examples for humanoid messaging.
+The **Robot Operating System 2 (ROS 2)** provides a modular framework for building distributed robotic applications. Unlike ROS 1, ROS 2 uses **DDS (Data Distribution Service)** as its communication backbone, enabling real-time, scalable, and robust message passing between nodes.  
 
-### Constraints:
-- Use ROS 2 Humble or Iron.
-
-### Success Criteria:
-- Student can design a basic ROS graph.
+This chapter introduces the key ROS 2 concepts: **Nodes, Topics, Services, and Actions**, and demonstrates their application in humanoid robotics for perception, control, and decision-making.
 
 ---
-**Learning Outcomes**:
-- Understand ROS 2 architecture and communication patterns.
-- Identify and describe ROS 2 concepts: Nodes, Topics, Services, Actions.
-- Apply ROS 2 communication patterns to humanoid robotics scenarios.
+
+## 2.2 DDS: Data Distribution Service
+
+DDS is a middleware standard that underpins ROS 2 communication. It provides:
+
+- **Publish/Subscribe (Pub/Sub)** messaging
+- **Quality of Service (QoS)** settings for reliability, durability, and latency
+- **Decentralized architecture**, removing single points of failure
+
+**Key Concepts in ROS 2 DDS Integration**:
+
+1. **Publishers and Subscribers**: Nodes can publish messages to a topic or subscribe to receive them.
+2. **QoS Profiles**: Control message delivery:
+   - `Reliable` vs `Best Effort`
+   - `Transient Local` vs `Volatile`
+   - `Deadline` and `Lifespan` parameters
+
+**Reference:** [1], [2]
+
+---
+
+## 2.3 ROS 2 Nodes
+
+A **node** is an executable that performs computation. In humanoid robotics, nodes can represent:
+
+- **Sensor nodes**: Reading joint positions, IMU data, cameras
+- **Control nodes**: Generating motor commands
+- **Planning nodes**: Path planning, motion generation
+- **Interface nodes**: Communicating with ROS 2 GUI tools or external systems
+
+Nodes are modular, promoting **separation of concerns** and **reusability**.
+
+**Definition:** *Node*: A ROS 2 process that communicates with other nodes using topics, services, or actions.
+
+---
+
+## 2.4 ROS 2 Topics
+
+Topics are **named channels** for asynchronous messaging. Nodes publish messages to a topic and other nodes subscribe to receive updates.
+
+**Example in Humanoid Robotics**:
+
+- Topic `/joint_states` publishes current angles of robot joints.
+- Control node subscribes to `/joint_states` to compute inverse kinematics and generate commands.
+
+**Key Points**:
+
+- One-to-many communication
+- Asynchronous data streaming
+- Supports QoS policies for reliability and real-time guarantees
+
+**Definition:** *Topic*: A communication channel for transmitting messages between ROS 2 nodes asynchronously.
+
+---
+
+## 2.5 ROS 2 Services
+
+Services enable **synchronous request-response communication** between nodes. They are ideal for commands that require a reply.
+
+**Example in Humanoid Robotics**:
+
+- Node `motion_planner` offers a service `/compute_trajectory`.
+- Control node sends a request with desired goal position.
+- Motion planner responds with a computed joint trajectory.
+
+**Definition:** *Service*: A synchronous communication mechanism in ROS 2 for sending requests and receiving responses.
+
+---
+
+## 2.6 ROS 2 Actions
+
+Actions are designed for **long-running tasks** where feedback is needed. Unlike services, actions provide:
+
+- **Goal sending**
+- **Periodic feedback**
+- **Result reporting**
+- **Preemption (canceling goals)**
+
+**Example in Humanoid Robotics**:
+
+- Node `walk_action_server` receives a goal to walk 5 meters.
+- Provides continuous feedback on step count and balance.
+- Returns result when task completes or is canceled.
+
+**Definition:** *Action*: A ROS 2 communication primitive for asynchronous, preemptible tasks that require feedback.
+
+---
+
+## 2.7 Summary
+
+- **ROS 2 architecture** is modular and decentralized using DDS.
+- **Nodes** encapsulate computation and interact through **Topics, Services, and Actions**.
+- **Pub/Sub** allows asynchronous messaging; **Services** enable synchronous communication; **Actions** handle long-running tasks with feedback.
+- QoS policies ensure reliable and deterministic communication in real-time humanoid applications.
+
+---
+
+## 2.8 Learning Outcomes
+
+After completing this chapter, students will be able to:
+
+1. Understand the ROS 2 architecture and its DDS-based communication.
+2. Identify and describe the function of Nodes, Topics, Services, and Actions.
+3. Apply ROS 2 communication patterns to humanoid robotics scenarios, such as joint control, motion planning, and task execution.
+
+---
+
+## References
+
+[1] M. Quigley et al., “ROS: An Open-Source Robot Operating System,” *ICRA Workshop on Open Source Software*, 2009.  
+[2] O. S. International, *Data Distribution Service for Real-Time Systems*, 1st ed., OMG, 2015.  
+[3] Fox, D., et al. *Probabilistic Robotics*. MIT Press, 2009.

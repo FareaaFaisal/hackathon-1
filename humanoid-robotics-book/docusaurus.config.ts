@@ -6,7 +6,7 @@ import type * as Preset from '@docusaurus/preset-classic';
 
 const config: Config = {
   title: 'Physical AI & Humanoid Robotics',
-  tagline: 'A Book on Embodied Intelligence',
+  tagline: 'Unlock the future of intelligent machines: Master Humanoid Robotics, Physical AI, Simulation, and Next-Gen Autonomous Systems for a world where robots think, move, and act like us',
   favicon: 'img/favicon.ico',
 
   // Production URL and base URL for GitHub Pages
@@ -58,9 +58,11 @@ const config: Config = {
   themeConfig: {
     image: 'img/docusaurus-social-card.jpg',
     colorMode: {
-      respectPrefersColorScheme: true,
+      defaultMode: 'light',
+      respectPrefersColorScheme: false,
     },
     navbar: {
+      hideOnScroll: false,
       title: 'Humanoid Robotics',
       logo: {
         alt: 'Humanoid Robotics Book Logo',
@@ -71,7 +73,7 @@ const config: Config = {
           type: 'docSidebar',
           sidebarId: 'tutorialSidebar',
           position: 'left',
-          label: 'Modules',
+          label: 'TextBook',
         },
         {to: '/blog', label: 'Blog', position: 'left'},
         {
@@ -82,50 +84,50 @@ const config: Config = {
       ],
     },
     footer: {
-      style: 'dark',
-      links: [
-        {
-          title: 'Docs',
-          items: [
-            {
-              label: 'Modules',
-              to: '/docs/intro',
-            },
-          ],
-        },
-        {
-          title: 'Community',
-          items: [
-            {
-              label: 'Stack Overflow',
-              href: 'https://stackoverflow.com/questions/tagged/docusaurus',
-            },
-            {
-              label: 'Discord',
-              href: 'https://discordapp.com/invite/docusaurus',
-            },
-            {
-              label: 'Twitter',
-              href: 'https://x.com/docusaurus',
-            },
-          ],
-        },
-        {
-          title: 'More',
-          items: [
-            {
-              label: 'Blog',
-              to: '/blog',
-            },
-            {
-              label: 'GitHub Repo',
-              href: 'https://github.com/FareaaFaisal/hackathon-1',
-            },
-          ],
-        },
+  style: 'dark',
+  logo: {
+    alt: 'Humanoid Robotics Logo',
+    src: 'img/logo.svg',
+    href: '/',
+  },
+  links: [
+    {
+      title: 'Explore',
+      items: [
+        { label: 'Modules', to: '/docs/robotic-nervous-system/intro-physical-ai' },
+        { label: 'Blog', to: '/blog' },
+        { label: 'GitHub Repo', href: 'https://github.com/FareaaFaisal/hackathon-1' },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} Physical AI & Humanoid Robotics. Built with Docusaurus.`,
     },
+    {
+      title: 'Community',
+      items: [
+        { label: 'Stack Overflow', href: 'https://stackoverflow.com/questions/tagged/docusaurus' },
+        { label: 'Discord', href: 'https://discord.com/invite/docusaurus' },
+        { label: 'Twitter', href: 'https://x.com/docusaurus' },
+      ],
+    },
+    {
+      title: 'Connect',
+      items: [
+        { label: 'GitHub', href: 'https://github.com/FareaaFaisal' },
+        { label: 'LinkedIn', href: 'https://www.linkedin.com/in/fareaa-faisal-31569a2ba/' },
+      ],
+    },
+    {
+      title: 'Resources',
+      items: [
+        { label: 'Docusaurus Docs', href: 'https://docusaurus.io/docs' },
+        { label: 'NVIDIA Isaac Sim', href: 'https://developer.nvidia.com/isaac-sim' },
+        { label: 'Physical AI Research', href: 'https://arxiv.org/search/?query=physical+AI&searchtype=all' },
+      ],
+    },
+  ],
+  copyright: `© ${new Date().getFullYear()} Physical AI & Humanoid Robotics | Designed & Developed by Fareaa Faisal`,
+
+},
+
+  
     prism: {
       theme: prismThemes.github,
       darkTheme: prismThemes.dracula,

@@ -1,23 +1,123 @@
-/**
- * CSS files with the .module.css suffix will be treated as CSS modules
- * and scoped locally.
- */
-
+/* HERO BANNER */
 .heroBanner {
-  padding: 4rem 0;
+  padding: 6rem 0;
   text-align: center;
-  position: relative;
-  overflow: hidden;
+  background: linear-gradient(180deg, #0a1a33 0%, #0f2747 60%, #ffffff 100%);
+  color: white;
 }
 
-@media screen and (max-width: 996px) {
-  .heroBanner {
-    padding: 2rem;
-  }
+.heroTitle {
+  font-size: 3.8rem;
+  font-weight: 800;
+  margin-bottom: 1.5rem;
 }
 
+.heroSubtitle {
+  font-size: 1.3rem;
+  max-width: 750px;
+  margin: 0 auto 2.5rem;
+  opacity: 0.9;
+}
+
+/* SECTIONS */
+.sectionDark {
+  background: #111827;
+  color: white;
+  padding: 4rem 1rem;
+  text-align: center;
+}
+
+.sectionTitle {
+  font-size: 2.8rem;
+  font-weight: 700;
+  margin-bottom: 3rem;
+}
+
+.sectionTitle1 {
+  text-align:center;
+  font-size: 2.8rem;
+  font-weight: 700;
+  color: #0f2747;
+  margin-bottom: 3rem;
+}
+
+.sectionDesc {
+  max-width: 850px;
+  margin: 0 auto;
+  font-size: 1.1rem;
+  opacity: 0.9;
+  line-height: 1.7;
+  padding: 0 1rem;
+}
+
+/* MODULES SECTION */
+.modulesSection {
+  padding: 4rem 1rem;
+  background: #f7f9fc;
+}
+
+.modulesGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+/* MODULE CARDS */
+.moduleCard {
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  text-align: left;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  border: 1px solid #e5e7eb;
+}
+
+.moduleCard:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.12);
+}
+
+.moduleCard h3 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 0.8rem;
+  color: #10345e;
+}
+
+.moduleCard p {
+  font-size: 0.95rem;
+  margin-bottom: 1rem;
+  line-height: 1.5;
+  color: #444;
+}
+
+/* Buttons container */
 .buttons {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+/* Responsive tweaks */
+@media screen and (max-width: 996px) {
+  .heroBanner {
+    padding: 3rem 1rem;
+  }
+
+  .heroTitle {
+    font-size: 2.4rem;
+  }
+
+  .heroSubtitle {
+    font-size: 1rem;
+  }
+}
+
+
+.modulesSection .moduleCard .button {
+  --ifm-button-color: #ff0000;
+  --ifm-button-hover-color: #ffffff;
+  --ifm-button-hover-background: #10345e;
 }

@@ -8,6 +8,7 @@ sidebar_label: 'Installing ROS 2'
 
 This chapter provides a step-by-step guide to installing ROS 2 on your development machine. We will be using the latest ROS 2 LTS (Long-Term Support) release, which is recommended for most users.
 
+
 ### Prerequisites:
 
 - **Ubuntu 22.04**: ROS 2 is primarily developed and tested on Ubuntu. While it can be installed on other operating systems, we recommend using Ubuntu 22.04 for the best experience.
@@ -50,5 +51,12 @@ This chapter provides a step-by-step guide to installing ROS 2 on your developme
     ```bash
     sudo apt install python3-colcon-common-extensions
     ```
+
+6.  **Verification**:
+    After installation, verify ROS 2 is working by running:
+    ```bash
+    ros2 doctor --report
+    ```
+    You should see a summary of ROS 2 environment, packages, and system readiness.
 
 After completing these steps, you will have a fully functional ROS 2 installation on your machine. In the next chapter, we will create our first ROS 2 package.
